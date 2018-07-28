@@ -1,0 +1,25 @@
+To install the node.js
+Step1: Download the required file from https://nodejs.org/en/
+file name:node-v8.11.3-x64.msi
+Step2: Provide the separate installation you want to give. 
+Path given: S:\Software Execution\nodejs
+
+After the installation is complete. S:\Software Execution\nodejs\ will be automatically added to the System path variable. 
+
+You can check it by running npm command in command prompt. 
+
+While installing node, npm and node both are installed. 
+You can check their versions by using following command. 
+c:> npm -v  // 5.6.0
+c:> node -v // v8.11.3
+
+To install angular run, following command. 
+ npm install –g @angular/cli
+ 
+
+
+
+
+References: 
+1. https://www.youtube.com/watch?v=Q0HFBy2BtfA
+2. https://nodejs.org/en/
