@@ -17,6 +17,14 @@ To install angular run, following command.
  npm install –g @angular/cli
  
  run ng -v to check the angular installation. 
+ 
+ -g is used to install angular CLI globally.
+ 
+ And, g is used install angular CLI in particular folder. 
+ 
+ 
+ 
+ 
 
 
 
