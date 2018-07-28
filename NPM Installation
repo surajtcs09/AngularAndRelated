@@ -16,6 +16,7 @@ c:> node -v // v8.11.3
 To install angular run, following command. 
  npm install –g @angular/cli
  
+ run ng -v to check the angular installation. 
 
 
 
