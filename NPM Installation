@@ -41,6 +41,8 @@ To install angular run, following command.
  
  Then, run your application through following URL: http://localhost:4200/
  
+ Command to change the port: ng serve --host 0.0.0.0 –port 4205
+ 
  
  
  
