@@ -22,6 +22,30 @@ To install angular run, following command.
  
  And, g is used install angular CLI in particular folder. 
  
+ To create a new project:
+ ng new <projectname>
+ S:\Learning\Angular\Angular4>ng new angular1-app
+ 
+ It will create the structure of the angular app. 
+ 
+ So, angular CLI reduced the plight of creating the structure all by yourself that I used to do in angular1. 
+ 
+ Project Compiltation command: ng serve
+ 
+ "ng serve" command compiles the project and start the server on port 4200. 
+ 
+ Note: Run this ng serve command on the particular project. 
+ 
+ S:\Learning\Angular\Angular4\angular1-app>ng serve
+ 
+ 
+ Then, run your application through following URL: http://localhost:4200/
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
@@ -32,3 +56,5 @@ To install angular run, following command.
 References: 
 1. https://www.youtube.com/watch?v=Q0HFBy2BtfA
 2. https://nodejs.org/en/
+3. https://www.tutorialspoint.com/angular4/angular4_project_setup.htm
+4. https://github.com/angular/angular-cli/wiki
