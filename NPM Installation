@@ -42,6 +42,25 @@ To install angular run, following command.
  Then, run your application through following URL: http://localhost:4200/
  
  Command to change the port: ng serve --host 0.0.0.0 –port 4205
+
+
+2. Running command "npm install" gives issue
+then try running it directly from Node.js command prompt
+
+For this go to installed Node.js folder and then 
+navigate to folder of your project and run the command
+npm install 
+and then
+npm install -g @angular/cli
+
+once angular cli installation is successful
+navigate to following path
+
+c:\Users\<name>\AppData\Roaming\npm
+
+This path contauns ng command . set this in path variavle
+for global access of ng
+
  
  
  
