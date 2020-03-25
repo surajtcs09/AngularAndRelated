@@ -1,0 +1,52 @@
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+</head>
+  <title>Demo Disable Print Screen</title>
+<body>   
+
+    <h2>Codebrary</h2>
+    <p>
+        Click anywhere on green background and Press key <b>PrtScr</b> or <b>Shift+PrntScr</b> and try to paste the content in your favourite Picture Editor.
+    </p>
+    <a href="https://www.codebrary.com" target="_blank">www.codebrary.com</a>
+
+
+</body>
+<script>
+ document.addEventListener("keyup", function (e) {
+    var keyCode = e.keyCode ? e.keyCode : e.which;
+            if (keyCode == 44) {
+                stopPrntScr();
+            }
+			if (e.shiftKey && (e.keyCode === 44)) {//disable shift + printscr
+               alert('not allowed');
+			   stopPrntScr();
+			}
+        });
+function stopPrntScr() {
+			console.log("Entered to stopPrntScr()");
+            var inpFld = document.createElement("input");
+            inpFld.setAttribute("value", ".");
+            inpFld.setAttribute("width", "0");
+            inpFld.style.height = "0px";
+            inpFld.style.width = "0px";
+            inpFld.style.border = "0px";
+            document.body.appendChild(inpFld);
+            inpFld.select();
+            document.execCommand("copy");
+            inpFld.remove(inpFld);
+        }
+       function AccessClipboardData() {
+            try {
+                window.clipboardData.setData('text', "Access   Restricted");
+            } catch (err) {
+            }
+        }
+        setInterval("AccessClipboardData()", 300);
+</script>
+</html>
