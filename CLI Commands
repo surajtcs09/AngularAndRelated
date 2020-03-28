@@ -1,0 +1,10 @@
+1. Angular CLI Commands
+Following site gives information about what all type can be generated
+https://angular.io/cli/generate
+
+ng generate <schematic> [options]
+ng g <schematic> [options]
+
+schematic can be component, service, enum, directive, class, interface, guard, interceptor
+
+
