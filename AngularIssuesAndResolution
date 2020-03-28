@@ -1,0 +1,18 @@
+1. Issue: More than one module matches.
+Error: More than one module matches. Use skip-import option to skip importing the component into the closest module
+Solution:
+This issue occurs when we try to create a component and there are multiple module.ts file to register it. 
+e.g. > ng g c shared\_component\alert
+There is app.module.ts and shared.module.ts to register. 
+CLI gets confused that's why this issue
+
+> ng g c shared\_component\alert --module shared
+
+https://stackoverflow.com/questions/46174863/error-more-than-one-module-matches-use-skip-import-option-to-skip-importing-th
+
+2. Issue: By mistake component created in wrong folder
+First delete the component in corresponding module.ts 
+And, then manually delete the folder 
+
+One can check how many files are affected while creation, run following command
+> ng g c shared\_component\alert --module shared --dry--run
