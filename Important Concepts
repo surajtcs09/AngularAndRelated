@@ -1,0 +1,29 @@
+1. To disable the log display in console. 
+For this, NGXLogger is used
+
+In the app.module.ts, one can write following code for disabling the error logging in console. 
+imports: [
+  AuthModule,
+  --------,
+  LoggerModule.forRoot({
+    level: NgxLoggerLevel.ERROR,
+    disableConsoleLogging: false,
+    serverLogLevel: NgxLoggerLevel.ERROR
+    })
+    ]
+    
+    
+2. To disable the spec creation while generating component, service or any other schematic
+In angular.json file, we can write following code,
+
+"projects": {
+  <project-name>": {
+      "projectType": "application", 
+      "schematics": {
+          "@schematics/angular:comonent": {
+              "spec": false
+              },
+             }
+           }
+         }
+           
