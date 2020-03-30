@@ -1,0 +1,8 @@
+1. To substring a particular string
+e.g. Fetch the name of micro service following string
+http://120.30.40.302:8090/studentms/rest/api/getStudentDetails
+
+ var str = "http://120.30.40.302:8090/studentms/rest/api/getStudentDetails";
+  var substr = str.substring(0, str.indexOf('/rest'));
+  var n = substr.lastIndexOf("/");
+  var requiredOutput = substr.substring(substr.lastIndexOf('/')+1);
