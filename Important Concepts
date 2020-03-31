@@ -26,4 +26,41 @@ In angular.json file, we can write following code,
              }
            }
          }
+         
+3. A good example for login, registration and error handling
+https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial
+
+This site says specifically about handling the errors like 500, 403, 0 or any specific code. 
+Error with error code 0 is throws when the service is down. This is "UNKNOWN_ERROR".
+
+import { Injectable } from '@angular/core';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+import { AuthenticationService } from '@/_services';
+
+@Injectable()
+export class ErrorInterceptor implements HttpInterceptor {
+    constructor(private authenticationService: AuthenticationService) {}
+
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        return next.handle(request).pipe(catchError(err => {
+            if (err.status === 401) {
+                // auto logout if 401 response returned from api
+                this.authenticationService.logout();
+                location.reload(true);
+            }
+            
+            const error = err.error.message || err.statusText;
+            return throwError(error);
+        }))
+    }
+}
+
+4. For dispalying multiple alerts in stacked way, one can take the reference from following: 
+https://jasonwatmore.com/post/2019/07/05/angular-8-alert-toaster-notifications
+Very specifically with minute details, it has been coded. 
+
+5. One can create fake back-end refer to website mentioned in point 3 & 4. 
            
