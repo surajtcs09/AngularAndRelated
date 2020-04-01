@@ -16,3 +16,14 @@ And, then manually delete the folder
 
 One can check how many files are affected while creation, run following command
 > ng g c shared\_component\alert --module shared --dry--run
+
+3. ExpressionChangedAfterItHasBeenCheckedError
+Solution: This issue occurs often when working with viewchild. At the time of loading expression value is different
+but after the initialization expresion value is changed. 
+Steps to resolve the issue: 
+Step1: Impement the parent class (where this issue occurred) with AfterViewChecked
+Step2: Include in constructor ChangeDetectorRef
+Step3: Include following method
+ngAfterViewChecked() {
+  this.changeDetector.detectChanges();
+}
