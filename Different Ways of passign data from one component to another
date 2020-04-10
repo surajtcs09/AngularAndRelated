@@ -1,0 +1,91 @@
+1. Use of @ViewChild
+This is used to call child component methods from parent at the ease of data availability
+
+In parent.component.html
+<child-component #childComponentFile > </child-component>
+
+In parent.component.ts file 
+
+class ParentComponent implement OnInit {
+  @ViewChild('childComponentFile', {static: false})
+  childComponetFile: ChildComponent;
+  
+  // Assignment of ChildComponent to childComponentFile makes sure that now childComponentFile can access the ChildComponent methods. 
+  
+  getSectionDataForChild() {
+  //some service call
+  this.childComponentFile.populateSectionData(data);
+  // This will pass the data to child component once the data is available in parent after the service call. 
+  }
+}
+
+In child.component.ts file 
+class ChildComponent implement OnInit {
+  populateSectionData(data: string) {
+    // now this data can be used in whatever ways in child component
+  }
+}
+
+
+Advantage over passing data through input 
+1. When data is passed through [], then at the time of loading parent component, child component also gets loaded
+and null data is passed. 
+It does not wait till the data is available after the service call is done. 
+
+
+2. Using input decorator
+This is used to pass the data from parent to child at the time of loading the parent component. 
+
+In parent.component.html 
+<div>
+  <child-component [childData] = "parentData"></child-component>
+</div>
+
+In parent.component.ts file
+this.parentData = "Some Data for child";
+
+In child.component.ts file 
+class ChildComponent {
+  @Input() childData: string; 
+  // Now childData can be used in whatever ways. This variable will contain value "Some Data for child"  
+}
+
+
+2. Using Output decorator 
+This is used to pass the data from child to parent on some event that is triggered from child. 
+
+In parent.component.html 
+<div>
+  <child-component (childData) = "someParentMethod($event)"> </child-componet>
+</div>
+<!-- $event is the data passed from child to parent. childData triggers that event. -->
+
+In parent.compoent.ts 
+private someParentMethod(data: <data-type>) {
+  // Now, this data received from child can be whatever ways in parent component 
+  // <data-type> can be boolean, string or any custom class or interface
+}
+
+In child.component.ts file
+class ChildComponent {
+  @Output childData = new EventEmitter<string>;   // this string is the data type, replace it accordingly
+  
+  someFunctionOfChild() {
+   if(someConditionMet) {
+     // trigger the event like this to pass the data from child to parent
+     this.data = 'some Data from child to parent';
+     this.childData.next(data);
+     // on the call of next using childData, data will be passed to the formal argument $event of someParentMethod
+     // Now, this data can be used in whatever ways in parent component
+   }
+  }
+}
+
+// To pass the data from child to parent, this call of next function is required. 
+
+4. Using services 
+
+Data can also be passed using services. 
+Use simple setter, getter methods there.
+Or call some function of service to execute some login and then use only getter method to make 
+the availability of data for other components. 
